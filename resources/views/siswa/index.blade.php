@@ -4,7 +4,9 @@
 
 @section('content')
 <h1 class="text-center">SISWA</h1>
+@can('create', App\Siswa::class)
 <a href="{{ route('siswa.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Siswa</a>
+@endcan
 <div class="table-responsive pt-3">
   <table class="table table-bordered border-primary">
     <thead>
@@ -60,12 +62,14 @@
               {{ $item['tanggal_lahir'] }}
             </td>
             <td class="text-center">
-              <form action="{{route('siswa.destroy', $item["id"])}}" method="post">
-                @method('DELETE')
-                @csrf
-                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
-                <a href="{{route('siswa.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-5">Edit</a>
-              </form>
+              @can('delete', $item)
+                <form action="{{route('siswa.destroy', $item["id"])}}" method="post">
+                  @method('DELETE')
+                  @csrf
+                  <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
+                  <a href="{{route('siswa.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-5">Edit</a>
+                </form>
+              @endcan
             </td>
           </tr>
       @endforeach

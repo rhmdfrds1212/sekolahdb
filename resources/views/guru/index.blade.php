@@ -4,7 +4,9 @@
 
 @section('content')
 <h1 class="text-center">GURU</h1>
-<a href="{{ route('guru.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Guru</a>
+@can('create', App\Guru::class)
+  <a href="{{ route('guru.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Guru</a>
+@endcan
 <table class="table table-bordered border-primary">
   <thead>
     <tr>
@@ -51,12 +53,16 @@
             {{ $item['tanggal_lahir'] }}
           </td>
           <td class="text-center">
-            <form action="{{route('guru.destroy', $item["id"])}}" method="post">
-              @method('DELETE')
-              @csrf
-              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
+            @can('delete', $item)
+              <form action="{{route('guru.destroy', $item["id"])}}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
+              </form>
+            @endcan
+            @can('update', $item)
               <a href="{{route('guru.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-5">Edit</a>
-            </form>
+            @endcan
           </td>
         </tr>
     @endforeach

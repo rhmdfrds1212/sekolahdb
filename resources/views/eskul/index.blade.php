@@ -4,7 +4,9 @@
 
 @section('content')
 <h1 class="text-center">EKTRAKULIKULER</h1>
+@can('create', App\Eksul::class)
 <a href="{{ route('eskul.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Eskul</a>
+@endcan
 <table class="table table-bordered border-primary">
   <thead>
     <tr>
@@ -31,12 +33,14 @@
             {{ $item['tanggal_resmi'] }}
           </td>
           <td class="text-center">
-            <form action="{{route('eskul.destroy', $item["id"])}}" method="post">
-              @method('DELETE')
-              @csrf
-              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
-              <a href="{{route('eskul.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-3">Edit</a>
-            </form>
+            @can('delete', $item)
+              <form action="{{route('eskul.destroy', $item["id"])}}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
+                <a href="{{route('eskul.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-3">Edit</a>
+              </form>
+            @endcan
           </td>
         </tr>
     @endforeach

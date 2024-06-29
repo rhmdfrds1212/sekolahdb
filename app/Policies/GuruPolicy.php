@@ -11,7 +11,7 @@ class GuruPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         //
     }
@@ -19,7 +19,7 @@ class GuruPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Guru $guru): bool
+    public function view(User $user, Guru $guru)
     {
         //
     }
@@ -29,7 +29,7 @@ class GuruPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === 'A';
+        return $user->role === 'A' || $user->role === 'G';
     }
 
     /**
@@ -51,7 +51,7 @@ class GuruPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Guru $guru): bool
+    public function restore(User $user, Guru $guru)
     {
         //
     }
@@ -59,7 +59,7 @@ class GuruPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Guru $guru): bool
+    public function forceDelete(User $user, Guru $guru)
     {
         //
     }

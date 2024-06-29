@@ -11,7 +11,7 @@ class EskulPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         //
     }
@@ -19,7 +19,7 @@ class EskulPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Eskul $eskul): bool
+    public function view(User $user, Eskul $eskul)
     {
         //
     }
@@ -51,7 +51,7 @@ class EskulPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Eskul $eskul): bool
+    public function restore(User $user, Eskul $eskul)
     {
         //
     }
@@ -59,7 +59,7 @@ class EskulPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Eskul $eskul): bool
+    public function forceDelete(User $user, Eskul $eskul)
     {
         //
     }

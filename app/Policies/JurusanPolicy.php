@@ -11,7 +11,7 @@ class JurusanPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         //
     }
@@ -19,7 +19,7 @@ class JurusanPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Jurusan $jurusan): bool
+    public function view(User $user, Jurusan $jurusan)
     {
         //
     }
@@ -31,7 +31,7 @@ class JurusanPolicy
     {
         // role A dan D diizinkan untuk membuat data mahasiswa
         // return in_array($user->role, ['A', 'D']);
-        return $user->role === 'A' || $user->role === 'D';
+        return $user->role === 'A';
     }
 
     /**
@@ -53,7 +53,7 @@ class JurusanPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Jurusan $jurusan): bool
+    public function restore(User $user, Jurusan $jurusan)
     {
         //
     }
@@ -61,7 +61,7 @@ class JurusanPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Jurusan $jurusan): bool
+    public function forceDelete(User $user, Jurusan $jurusan)
     {
         //
     }

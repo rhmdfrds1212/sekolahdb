@@ -6,12 +6,12 @@ use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class MahasiswaPolicy
+class SiswaPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         //
     }
@@ -19,7 +19,7 @@ class MahasiswaPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Siswa $siswa): bool
+    public function view(User $user, Siswa $siswa)
     {
         //
     }
@@ -29,9 +29,7 @@ class MahasiswaPolicy
      */
     public function create(User $user): bool
     {
-        // role A dan D diizinkan untuk membuat data mahasiswa
-        // return in_array($user->role, ['A', 'D']);
-        return $user->role === 'A' || $user->role === 'G';
+        return $user->role === 'A';
     }
 
     /**
@@ -53,7 +51,7 @@ class MahasiswaPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Siswa $siswa): bool
+    public function restore(User $user, Siswa $siswa)
     {
         //
     }
@@ -61,7 +59,7 @@ class MahasiswaPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Siswa $siswa): bool
+    public function forceDelete(User $user, Siswa $siswa)
     {
         //
     }

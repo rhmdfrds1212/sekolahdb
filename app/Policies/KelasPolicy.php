@@ -11,7 +11,7 @@ class KelasPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function ViewAny(User $user): bool
+    public function ViewAny(User $user)
     {
         //
     }
@@ -19,7 +19,7 @@ class KelasPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Kelas $kelas): bool
+    public function view(User $user, Kelas $kelas)
     {
         //
     }
@@ -37,7 +37,7 @@ class KelasPolicy
      */
     public function update(User $user, Kelas $kelas): bool
     {
-        //
+        return $user->role === 'A';
     }
 
     /**
@@ -45,13 +45,13 @@ class KelasPolicy
      */
     public function delete(User $user, Kelas $kelas): bool
     {
-        //
+        return $user->role === 'A';
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Kelas $kelas): bool
+    public function restore(User $user, Kelas $kelas)
     {
         //
     }
@@ -59,7 +59,7 @@ class KelasPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Kelas $kelas): bool
+    public function forceDelete(User $user, Kelas $kelas)
     {
         //
     }

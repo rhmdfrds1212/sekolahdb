@@ -52,7 +52,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="#" class="logo d-flex align-items-center w-auto">
                   <img src="{{ url('assets/img/logosekolah.png') }}" alt="">
-                  <span class="d-none d-lg-block">SMA 1</span>
+                  <span class="d-none d-lg-block">SMAKU</span>
                 </a>
               </div><!-- End Logo -->
 

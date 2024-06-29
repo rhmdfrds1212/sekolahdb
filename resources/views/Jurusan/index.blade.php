@@ -4,7 +4,9 @@
 
 @section('content')
 <h1 class="text-center">JURUSAN</h1>
-<a href="{{ route('jurusan.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Jurusan</a>
+@can('create', App\Jurusan::class)
+  <a href="{{ route('jurusan.create') }}" class="btn btn-primary col-lg-12 mb-3">Tambah Jurusan</a>
+@endcan
 <table class="table table-bordered border-primary">
   <thead>
     <tr>
@@ -31,12 +33,14 @@
             {{ $item['deskripsi'] }}
           </td>
           <td class="text-center">
-            <form action="{{route('jurusan.destroy', $item["id"])}}" method="post">
-              @method('DELETE')
-              @csrf
-              <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
-              <a href="{{route('jurusan.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-5">Edit</a>
-            </form>
+            @can('delete', $item)
+              <form action="{{route('jurusan.destroy', $item["id"])}}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $item['nama'] }}">Hapus</button>
+                <a href="{{route('jurusan.edit', $item["id"])}}" class="btn btn-sm btn-warning col-lg-5">Edit</a>
+              </form>
+            @endcan
           </td>
         </tr>
     @endforeach
