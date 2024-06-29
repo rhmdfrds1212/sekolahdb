@@ -37,7 +37,7 @@ class EskulPolicy
      */
     public function update(User $user, Eskul $eskul): bool
     {
-        //
+        return $user->role === 'A';
     }
 
     /**
@@ -45,7 +45,7 @@ class EskulPolicy
      */
     public function delete(User $user, Eskul $eskul): bool
     {
-        //
+        return $user->role === 'A';
     }
 
     /**

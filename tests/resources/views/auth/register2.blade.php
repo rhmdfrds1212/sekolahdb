@@ -61,7 +61,7 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Buat Akun KAmu</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">Buat Akun Kamu</h5>
                     <p class="text-center small">Isi Data diri Kamu Untuk membuat Akun</p>
                   </div>
 
