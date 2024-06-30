@@ -22,12 +22,8 @@
             "dest": "/public/js/"
         },
         {
-            "src": "/vendor/(.*)",
-            "dest": "/public/vendor/"
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/public/assets/"
+            "src": "/vendors/(.*)",
+            "dest": "/public/vendors/"
         },
         {
             "src": "/(.*)",
